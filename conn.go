@@ -1,5 +1,11 @@
 package nxrm
 
+import (
+	"encoding/json"
+	"log"
+	"os"
+)
+
 type ConnDetails struct {
 	NexusURL string
 	Username string

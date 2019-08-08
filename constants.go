@@ -1,6 +1,10 @@
 package nxrm
 
 const (
+	ConfFileName = "nexus3-repository-cli.json"
+	connDetailsSuccessInfo = "Connection details were stored successfully in the file ./%s\n"
+	connDetailsEmptyInfo   = "Server connection details are not set...First Run %q to set the connection details\n"
+
 	// API Extensions
 	apiBase        = "service/rest"
 	scriptAPI      = "v1/script"
