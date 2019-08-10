@@ -102,7 +102,7 @@ func ListRepositories(name, format string) {
 
 func CreateHosted(name, blobStoreName, format string, dockerHttpPort, dockerHttpsPort float64, releases bool) {
 	if name == "" || format == "" {
-		log.Printf("%s : %s", getfuncName(), hostedRepoRequiredInfo)
+		log.Printf("%s : %s", getfuncName(), repoNameFormatRequiredInfo)
 		os.Exit(1)
 	}
 	format = validateRepositoryFormat(format)
@@ -133,7 +133,10 @@ func CreateHosted(name, blobStoreName, format string, dockerHttpPort, dockerHttp
 }
 
 func CreateProxy(name, blobStoreName, format, remoteURL, proxyUsername, proxyPassword string, dockerHttpPort, dockerHttpsPort float64, releases bool) {
-	if name == "" || remoteURL == "" || format == "" {
+	if name == "" || format == "" {
+		log.Printf("%s : %s", getfuncName(), repoNameFormatRequiredInfo)
+		os.Exit(1)
+	} else if remoteURL == "" {
 		log.Printf("%s : %s", getfuncName(), proxyRepoRequiredInfo)
 		os.Exit(1)
 	}
@@ -173,8 +176,11 @@ func CreateProxy(name, blobStoreName, format, remoteURL, proxyUsername, proxyPas
 }
 
 func CreateGroup(name, blobStoreName, format, repoMembers string, dockerHttpPort, dockerHttpsPort float64, releases bool) {
-	if name == "" || repoMembers == "" || format == "" {
-		log.Printf("%s : %s", getfuncName(), groupRequiredInfo)
+	if name == "" || format == "" {
+		log.Printf("%s : %s", getfuncName(), repoNameFormatRequiredInfo)
+		os.Exit(1)
+	} else if repoMembers == "" {
+		log.Printf("%s : %s", getfuncName(), groupRepoRequiredInfo)
 		os.Exit(1)
 	}
 	format = validateRepositoryFormat(format)
@@ -207,15 +213,18 @@ func CreateGroup(name, blobStoreName, format, repoMembers string, dockerHttpPort
 	printCreateRepoStatus(name, result.Status)
 }
 
-func AddMembersToGroup(name, format, repoMembers string) {
-	if name == "" || repoMembers == "" || format == "" {
-		log.Printf("%s : %s", getfuncName(), groupRequiredInfo)
+func AddMembersToGroup(name, repoMembers string) {
+	if name == "" {
+		log.Printf("%s : %s", getfuncName(), name)
+		os.Exit(1)
+	} else if repoMembers == "" {
+		log.Printf("%s : %s", getfuncName(), groupRepoRequiredInfo)
 		os.Exit(1)
 	}
 	if repositoryExists(name) {
 		repo := getRepository(name)
 		validateGroupRepo(repo)
-		format = validateRepositoryFormat(format)
+		format := repo.Format
 		validList := validateGroupMembers(repoMembers, format)
 		currentMembers := repo.Attributes.Group.MemberNames
 		for _, newMember := range validList {
@@ -239,15 +248,18 @@ func AddMembersToGroup(name, format, repoMembers string) {
 	}
 }
 
-func RemoveMembersFromGroup(name, format, repoMembers string) {
-	if name == "" || repoMembers == "" || format == "" {
-		log.Printf("%s : %s", getfuncName(), groupRequiredInfo)
+func RemoveMembersFromGroup(name, repoMembers string) {
+	if name == "" {
+		log.Printf("%s : %s", getfuncName(), nameRequiredInfo)
+		os.Exit(1)
+	} else if repoMembers == "" {
+		log.Printf("%s : %s", getfuncName(), groupRepoRequiredInfo)
 		os.Exit(1)
 	}
 	if repositoryExists(name) {
 		repo := getRepository(name)
 		validateGroupRepo(repo)
-		format = validateRepositoryFormat(format)
+		format := repo.Format
 		validList := validateGroupMembers(repoMembers, format)
 		currentMembers := repo.Attributes.Group.MemberNames
 		for _, newMember := range validList {

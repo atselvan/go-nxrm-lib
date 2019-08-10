@@ -52,9 +52,9 @@ const (
 	//repo
 	RepoFormatNotValidInfo        = "%q is not a valid repository format. Available repository formats are : %v\n"
 	repoFormatRequiredInfo        = "format is a required parameter"
-	hostedRepoRequiredInfo        = "name and format are required parameters to create a hosted repository"
-	proxyRepoRequiredInfo         = "name, format and remote-url are required parameters to create a proxy repository"
-	groupRequiredInfo             = "name, format and members are required parameters"
+	repoNameFormatRequiredInfo    = "name and format are required parameters to create a repository"
+	proxyRepoRequiredInfo         = "remote-url is a required parameter to create a proxy repository"
+	groupRepoRequiredInfo         = "members is a required parameter to create a group repository"
 	dockerPortsInfo               = "You need to specify either a http port or a https port or both for creating a docker repository"
 	repositoryNotFoundInfo        = "Repository %q was not found in nexus"
 	repoCreatedInfo               = "Repository %q was created in nexus\n"
