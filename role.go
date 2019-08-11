@@ -74,6 +74,10 @@ func UpdateRole(id, description, roleMembers, rolePrivileges, updateAction strin
 
 	role := getRole(id)
 
+	if role.RoleID == "" {
+		os.Exit(1)
+	}
+
 	if description != "" {
 		role.Description = description
 	}
