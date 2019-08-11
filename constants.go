@@ -78,7 +78,7 @@ const (
 
 	//selector
 	contentSelectorType = "csel"
-	defaultContentSelectorDescription = "Custom content-selector created from the CLI"
+	defaultContentSelectorDescription = "Custom content-selector created using the CLI"
 	createSelectorRequiredInfo        = "name and expression are required parameters"
 	createSelectorSuccessInfo         = "Content selector %q was created\n"
 	updateSelectorSuccessInfo         = "Content selector %q was updated\n"
@@ -87,7 +87,7 @@ const (
 	selectorNotFoundInfo              = "Content selector %q was not found in nexus\n"
 
 	//privilege
-	defaultPrivilegeDescription = "Custom privilege created from the CLI"
+	defaultPrivilegeDescription = "Custom privilege created using the CLI"
 	privilegeNotFoundInfo       = "Privilege %q was not found in nexus\n"
 	privilegeExistsInfo         = "Privilege %q already exists\n"
 	createPrivilegeRequiredInfo = "name, selector-name and repo-name are required parameters"
@@ -99,7 +99,7 @@ const (
 	UpdateActionRequiredInfo = "Update action is a required parameter. Available values = %+q\n"
 	UpdateActionInvalidInfo  = "%s is not a valid update action. Available actions: %+q\n"
 
-	defaultRoleDescription        = "Custom role created from the CLI"
+	defaultRoleDescription        = "Custom role created using the CLI"
 	defaultRoleSource             = "Nexus"
 	roleIDRequiredInfo            = "id is a required parameter"
 	roleNotFoundInfo              = "Role %q was not found in nexus\n"
