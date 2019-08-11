@@ -1,7 +1,7 @@
 package nxrm
 
 const (
-	ConfFileName = "nexus3-repository-cli.json"
+	ConfFileName           = "nexus3-repository-cli.json"
 	connDetailsSuccessInfo = "Connection details were stored successfully in the file ./%s\n"
 	connDetailsEmptyInfo   = "Server connection details are not set...First Run %q to set the connection details\n"
 
@@ -21,7 +21,7 @@ const (
 	// Error Strings
 	jsonMarshalError   = "JSON Marshal Error"
 	jsonUnmarshalError = "JSON Unmarshal Error"
-	setVerboseInfo   = "There was an error calling the function. Set verbose flag for more information"
+	setVerboseInfo     = "There was an error calling the function. Set verbose flag for more information"
 
 	nameRequiredInfo = "name is a required parameter"
 
@@ -77,7 +77,7 @@ const (
 	groupMemberRemoveSuccessInfo  = "Member %q is removed from the group %q\n"
 
 	//selector
-	contentSelectorType = "csel"
+	contentSelectorType               = "csel"
 	defaultContentSelectorDescription = "Custom content-selector created using the CLI"
 	createSelectorRequiredInfo        = "name and expression are required parameters"
 	createSelectorSuccessInfo         = "Content selector %q was created\n"

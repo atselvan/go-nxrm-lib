@@ -49,7 +49,7 @@ func ListScripts(name string) {
 	}
 }
 
-func ScriptsInit(){
+func ScriptsInit() {
 	for _, s := range NexusScripts {
 		AddOrUpdateScript(s)
 	}
